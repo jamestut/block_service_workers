@@ -57,8 +57,6 @@ chrome.storage.sync.get(domain, function(data){
             overrideServiceWorker += 'return new Promise(function(res,rej){rej(Error("A Service Worker has been blocked for this domain"))});';
           overrideServiceWorker += '}';
         overrideServiceWorker += '}else{'; // NOT YET DECIDED
-          overrideServiceWorker += 'window.postMessage({type:"DECIDE_SERVICE_WORKERS",domain:window.location.hostname,path:path,pathname:window.location.pathname}, "*");';
-          overrideServiceWorker += 'return new Promise(function(res, rej){rej(Error("Allow or Block this Service Worker for this domain"))})';
         overrideServiceWorker += '}';
       overrideServiceWorker += '};';
     overrideServiceWorker += 'if("serviceWorker" in navigator){navigator.serviceWorker.register=__bsw_override__}';
